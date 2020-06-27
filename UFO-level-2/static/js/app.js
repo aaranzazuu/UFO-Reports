@@ -39,16 +39,28 @@ function runEnter() {
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
     var inputCity = d3.select("#incity");
+    var inputState = d3.select("#state");
+    var inputCountry = d3.select("#country");
+    var inputShape = d3.select("#shape");
   
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
     var inputValueCity = inputCity.property("value");
+    var inputValueState = inputState.property("value");
+    var inputValueCountry = inputCountry.property("value");
+    var inputValueShape = inputShape.property("value");
   
     console.log(inputValue);
-    console.log(inputCity);
+    console.log(inputValueCity);
+    console.log(inputValueState);
+    console.log(inputValueCountry);
+    console.log(inputValueShape);
   
     var filteredData = data.filter(x => x.datetime === inputValue).
-    filter(y => y.city == inputValueCity);
+    filter(y => y.city == inputValueCity).
+    filter(z => z.state == inputValueState).
+    filter(a => a.country == inputValueCountry).
+    filter(b => b.shape == inputValueShape);
 
     filteredData.forEach(function(filteredReport) {
         
