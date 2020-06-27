@@ -30,6 +30,9 @@ form.on("submit",runEnter);
 // Complete the event handler function for the form
 function runEnter() {
 
+    var body = document.getElementById("ufo-body");
+    body.innerHTML = "";
+
     //Prevent the page from refreshing
     d3.event.preventDefault();
     
@@ -44,6 +47,8 @@ function runEnter() {
     var filteredData = data.filter(x => x.datetime === inputValue);
 
     filteredData.forEach(function(filteredReport) {
+        
+
         var row = tbody.append("tr");
 
         
